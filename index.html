@@ -7,18 +7,20 @@
     <!-- CSS -->
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/main.css">
-    <!-- JS File -->
+    <!-- JS Library File -->
     <script src="js/jquery.min.js"></script>
     <script src="js/angular.min.js"></script>
     <script src="js/angular-route.min.js"></script>
     <script src="js/angular-sanitize.min.js"></script>
     <script src="js/angular-animate.min.js"></script>
     <script src="js/angular-resource.min.js"></script>
+    <!-- Custom Logic -->
+    <script src="controller/main.js"></script>
 
   </head>
 
   <body ng-app="mun">
-  <!-- side bar -->
+    <!-- side bar -->
     <div class="col-sm-3 col-md-2 sidebar">
     <div class="head-title-wrap">
       <div class='head-title'>
@@ -28,29 +30,21 @@
     </div>
       <ul class="nav nav-sidebar">
         <li class="title"><span>General</span></li>
-        <li><a href="rollcall">Roll Call</a></li>
-        <li><a href="speaklist">Speak List</a></li>
-        <li><a href="motion">Motion</a></li>
-        <li><a href="vote">Vote</a></li>
+        <li><a href="/rollcall">Roll Call</a></li>
+        <li><a href="/speaklist">Speak List</a></li>
+        <li><a href="/motion">Motion</a></li>
+        <li><a href="/vote">Vote</a></li>
       </ul>
       <ul class="nav nav-sidebar">
         <li class="title"><span>Other</span></li>
-        <li><a href="stat">Statistics</a></li>
-        <li><a href="setting">Setting</a></li>
-        <li><a href="about">About</a></li>
+        <li><a href="/stat">Statistics</a></li>
+        <li><a href="/setting">Setting</a></li>
+        <li><a href="/about">About</a></li>
       </ul>
       <div id="sidebar-bottom"><span>Powered By<br/> ZSMUN Tech Team</span></div>
     </div>
     <!-- content -->
     <!-- The HTML will be replaced by template -->
-    <div id="content" ng-view>
-      
-    </div>
-    
-
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    
+    <div id="content" class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2" ng-view></div>
   </body>
 </html>

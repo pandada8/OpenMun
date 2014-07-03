@@ -80,3 +80,22 @@
 	font-weight: bold;
 	text-align: center;
 }
+/* Global Setting*/
+#content{
+	display: flex;
+	height: 100%;
+	position: absolute;
+}
+
+/*
+* The About Page
+*/
+
+#about {
+	text-align: center;
+	margin:auto;
+}
+#content img{
+	width:45%;
+	margin-bottom: 40px;
+}
