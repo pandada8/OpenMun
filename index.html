@@ -1,0 +1,54 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Template</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="http://cdn.bootcss.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Custom styles for this template -->
+    <!-- <link href="dashboard.css" rel="stylesheet"> -->
+    <link rel="stylesheet" href="main.css">
+  </head>
+
+  <body>
+  <!-- side bar -->
+    <div class="col-sm-3 col-md-2 sidebar">
+    <div class="head-title-wrap">
+      <div class='head-title'>
+        <span class="title">ZSMUN</span>
+        <span class="subtitle">Online Counter</span>
+      </div>
+    </div>
+      <ul class="nav nav-sidebar">
+        <li class="title"><span>General</span></li>
+        <li><a href="rollcall">Roll Call</a></li>
+        <li><a href="speaklist">Speak List</a></li>
+        <li><a href="motion">Motion</a></li>
+        <li><a href="vote">Vote</a></li>
+      </ul>
+      <ul class="nav nav-sidebar">
+        <li class="title"><span>Other</span></li>
+        <li><a href="stat">Statistics</a></li>
+        <li><a href="setting">Setting</a></li>
+        <li><a href="about">About</a></li>
+      </ul>
+      <div id="sidebar-bottom"><span>Powered By<br/> ZSMUN Tech Team</span></div>
+    </div>
+    <!-- content -->
+    <!-- The HTML will be replaced by template -->
+    <div id="content" ng-view>
+      
+    </div>
+    
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="http://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script>
+    <script src="http://cdn.bootcss.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src=""></script>
+  </body>
+</html>
