@@ -2,24 +2,16 @@
 	background-color: #383a49;
 	display: flex;
 	margin: 0 -15px;
+	height:12%;
 }
 .head-title{
 	margin:auto;
 	color:white;
+	text-align:center;
 }
-.title{
-	font-weight: normal;
-	font-size: 270%;
-	margin-top: 20px;
-	display: block;
-}
-.subtitle{
-	font-weight: bold;
-	font-size: 120%;
-	display: block;
-	line-height: 1;
-	margin-top: 0px;
-	margin-bottom: 30px;
+.head-title img{
+	width:80%;
+	height:80%;
 }
 .sidebar{
 	position: fixed;
@@ -29,15 +21,16 @@
 .sidebar a{
 	color: #5b5d6c;
 	text-transform: uppercase;
-	font-weight: bold;
-	
+	font-weight: normal;
+
 }
 .nav{
 	overflow:hidden;
 }
-.nav li>a:hover, .nav>li>a:focus{
+.nav li:hover, .slidebar-active{
 	background-color: #5b5d6c !important;
 	transition:background-color 0.3s;
+	font-weight:bold;
 }
 .nav a:hover{
 	color: white;
@@ -80,11 +73,23 @@
 	font-weight: bold;
 	text-align: center;
 }
+
+
+/*对Bootstrap的补充*/
+.btn-shadow{
+	box-shadow: inset 0 -4px 0 #CCC;
+}
+
+
+
 /* Global Setting*/
 #content{
 	display: flex;
 	height: 100%;
-	position: absolute;
+	padding: 0px;
+	width:100%;
+	position:fixed;
+	flex-direction:column;
 }
 
 /*
@@ -95,7 +100,7 @@
 	text-align: center;
 	margin:auto;
 }
-#content img{
+#about img{
 	width:45%;
 	margin-bottom: 40px;
 }

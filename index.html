@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <title>ZSMUN Online Couter</title>
     <!-- CSS -->
-    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="css/main.css">
     <!-- JS Library File -->
     <script src="js/jquery.min.js"></script>
@@ -16,35 +16,35 @@
     <script src="js/angular-resource.min.js"></script>
     <!-- Custom Logic -->
     <script src="controller/main.js"></script>
-
+    <script src="services/store.js"></script>
+    <script src="controller/MotionNew.js"></script>
   </head>
 
   <body ng-app="mun">
     <!-- side bar -->
-    <div class="col-sm-3 col-md-2 sidebar">
+    <div class="col-xs-1 sidebar" ng-controller="MenuCon">
     <div class="head-title-wrap">
       <div class='head-title'>
-        <span class="title">ZSMUN</span>
-        <span class="subtitle">Online Counter</span>
+        <img src="pic/icon_small.png">
+        <div></div>
       </div>
     </div>
+    <!-- FIXME 修正菜单侧边栏的颜色，重构 -->
       <ul class="nav nav-sidebar">
-        <li class="title"><span>General</span></li>
-        <li><a href="/rollcall">Roll Call</a></li>
-        <li><a href="/speaklist">Speak List</a></li>
-        <li><a href="/motion">Motion</a></li>
-        <li><a href="/vote">Vote</a></li>
+        <li ng-click="click(1)" ng-class="{active: active == 1}">{{menu[1][0]}}</li>
+        <li ng-click="click(2)" ng-class="{active: active == 2}">{{menu[2][0]}}</li>
+        <li ng-click="click(3)" ng-class="{active: active == 3}">{{menu[3][0]}}</li>
+        <li ng-click="click(4)" ng-class="{active: active == 4}">{{menu[4][0]}}</li>
       </ul>
       <ul class="nav nav-sidebar">
-        <li class="title"><span>Other</span></li>
-        <li><a href="/stat">Statistics</a></li>
-        <li><a href="/setting">Setting</a></li>
-        <li><a href="/about">About</a></li>
+        <li ng-click="click(5)" ng-class="{active: active == 5}">{{menu[5][0]}}</li>
+        <li ng-click="click(6)" ng-class="{active: active == 6}">{{menu[6][0]}}</li>
+        <li ng-click="click(7)" ng-class="{active: active == 7}">{{menu[7][0]}}</li>
       </ul>
-      <div id="sidebar-bottom"><span>Powered By<br/> ZSMUN Tech Team</span></div>
+      <div id="sidebar-bottom"><span>由舟山模联强力驱动</span></div>
     </div>
     <!-- content -->
     <!-- The HTML will be replaced by template -->
-    <div id="content" class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2" ng-view></div>
+    <div id="content" class="col-xs-11 col-xs-offset-1" ng-view></div>
   </body>
 </html>
