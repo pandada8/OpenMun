@@ -18,6 +18,7 @@
     <script src="controller/main.js"></script>
     <script src="services/store.js"></script>
     <script src="controller/MotionNew.js"></script>
+    <script src="controller/RollCall.js"></script>
   </head>
 
   <body ng-app="mun">
@@ -31,15 +32,15 @@
     </div>
     <!-- FIXME 修正菜单侧边栏的颜色，重构 -->
       <ul class="nav nav-sidebar">
-        <li ng-click="click(1)" ng-class="{active: active == 1}">{{menu[1][0]}}</li>
-        <li ng-click="click(2)" ng-class="{active: active == 2}">{{menu[2][0]}}</li>
-        <li ng-click="click(3)" ng-class="{active: active == 3}">{{menu[3][0]}}</li>
-        <li ng-click="click(4)" ng-class="{active: active == 4}">{{menu[4][0]}}</li>
+        <li ng-click="click(1)" ng-class="{active: active == 1}"><a>{{menu[1][0]}}</a></li>
+        <li ng-click="click(2)" ng-class="{active: active == 2}"><a>{{menu[2][0]}}</a></li>
+        <li ng-click="click(3)" ng-class="{active: active == 3}"><a>{{menu[3][0]}}</a></li>
+        <li ng-click="click(4)" ng-class="{active: active == 4}"><a>{{menu[4][0]}}</a></li>
       </ul>
       <ul class="nav nav-sidebar">
-        <li ng-click="click(5)" ng-class="{active: active == 5}">{{menu[5][0]}}</li>
-        <li ng-click="click(6)" ng-class="{active: active == 6}">{{menu[6][0]}}</li>
-        <li ng-click="click(7)" ng-class="{active: active == 7}">{{menu[7][0]}}</li>
+        <li ng-click="click(5)" ng-class="{active: active == 5}"><a>{{menu[5][0]}}</a></li>
+        <li ng-click="click(6)" ng-class="{active: active == 6}"><a>{{menu[6][0]}}</a></li>
+        <li ng-click="click(7)" ng-class="{active: active == 7}"><a>{{menu[7][0]}}</a></li>
       </ul>
       <div id="sidebar-bottom"><span>由舟山模联强力驱动</span></div>
     </div>

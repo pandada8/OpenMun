@@ -1,7 +1,7 @@
 // TODO 使用统一的Motion结构体
 
 var mun = angular.module('mun')
-mun.controller('MotionNew',["$scope",'$location',function($scope){
+mun.controller('MotionNew',["$scope",'$location',function($scope,$location){
   $scope.motion_type = {
     1:'自由磋商',
     2:'有主持核心磋商',
@@ -14,7 +14,7 @@ mun.controller('MotionNew',["$scope",'$location',function($scope){
   }
 
 
-
+  $scope.suc = true;
   $scope.click = function(num){
 
     $scope.now = num
@@ -27,6 +27,7 @@ mun.controller('MotionNew',["$scope",'$location',function($scope){
     }
     // FIXME 剩下的逻辑
   }
+  // $scope.$watch()
   $scope.back = function(){
     // TODO 抓取数据并存储
     d = {}

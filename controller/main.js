@@ -14,6 +14,9 @@ mun.config(['$routeProvider','$locationProvider',function($routeProvider,$locati
 	}).when('/motion/new',{
 		templateUrl:"motion_new.html",
 		controller:'MotionNew'
+	}).when("/rollcall",{
+		templateUrl:'rollcall.html',
+		controller:'RollCall'
 	})
 }])
 
@@ -37,3 +40,35 @@ mun.controller("MenuCon",["$scope",'$location',function($scope,$location){
 mun.controller('AboutController', ['$scope', function($scope){
 	$scope.ver = VERSION
 }])
+
+
+// // 下面是要用到的一些数据类
+
+// function Country(id,engName,fullName,picUrl){
+// 	this.engName = engName;
+// 	this.fullName = fullName;
+// 	this.picUrl = picUrl;
+// 	this.id = id
+// }
+// function Motion(type){
+// 	this.Type = type
+// 	this.time_all = 0;
+// 	this.time_each = 1;
+// 	this.topic = "";
+// }
+// function Rollcall(present_countries,absent_countries){
+// 	this.time = time.time();
+// }
+
+// // 全局数据存储
+
+// var Data = {}
+// Data.motions = {}
+// Data.motions.data = []
+// Data.motions.add = function(motion_){
+// 	// 注意到这里使用的push，最新的在最后面
+// 	Data.motions.data.push(motion_)
+// }
+// Data.rollcall = {}
+// Data.rollcall.data = []
+// Data.rollcall.new = function()
