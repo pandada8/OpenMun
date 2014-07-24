@@ -1,13 +1,10 @@
 VERSION = '0.0-Alpha'
 
-var mun = angular.module('mun',['ngRoute','ngSanitize']);
+var mun = angular.module('mun',['ngRoute','ngSanitize','ui.bootstrap']);
 // Config the Route
 mun.config(['$routeProvider','$locationProvider',function($routeProvider,$locationProvider) {
-	// Open the html5 Mode to remove the hashbang.
-	// $locationProvider.html5Mode(true);
 	$routeProvider.when('/',{
-		templateUrl:'general.html'
-
+		templateUrl:'about.html'
 	}).when('/about',{
 		templateUrl:"about.html",
 		controller:'AboutController'
@@ -17,10 +14,15 @@ mun.config(['$routeProvider','$locationProvider',function($routeProvider,$locati
 	}).when("/rollcall",{
 		templateUrl:'rollcall.html',
 		controller:'RollCall'
+	}).when("/rollcall/new",{
+		templateUrl:'rollcall_new.html',
+		controller:'RollCallNew'
+	}).when("/test",{
+		templateUrl:'test.html',
+		controller:'test'
 	})
 }])
-
-mun.controller("MenuCon",["$scope",'$location',function($scope,$location){
+mun.controller("menucon",["$scope","$location",function($scope,$location){
 	$scope.menu = {
 		1:['点名','/rollcall'],
 		2:['主发言名单','/speaklist'],
@@ -35,6 +37,10 @@ mun.controller("MenuCon",["$scope",'$location',function($scope,$location){
 		$location.path($scope.menu[num][1])
 	}
 
+}])
+
+mun.controller('test',['$scope',function($scope){
+	console.log('')
 }])
 
 mun.controller('AboutController', ['$scope', function($scope){
@@ -72,3 +78,30 @@ mun.controller('AboutController', ['$scope', function($scope){
 // Data.rollcall = {}
 // Data.rollcall.data = []
 // Data.rollcall.new = function()
+
+
+function RollCall(presents,all,time){
+	a = {}
+	if (!arguments[2]){
+		var d = new Date()
+		var time = d.getTime()
+	}
+	a.presents = presents
+	a.present = presents.length
+	a.all = all
+	a.time = time
+	a.onefifth = Math.ceil(a.present * 0.2 )
+	a.simple = Math.floor(a.present * 0.5 + 1)
+	a.major = Math.ceil(a.present * 2 / 3)
+	a.time_human = d.toLocaleString()
+	return a
+}
+function Country(chi,eng,flag,short){
+	ret = {}
+	ret.chi_name = chi
+	ret.eng_name = eng
+	ret.flag_url = flag
+	ret.present = false
+	ret.short = short
+	return ret
+}

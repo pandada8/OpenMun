@@ -11,24 +11,86 @@
   font-size:220%;
   display:table-cell;
   vertical-align:middle;
-
 }
 .content-body{
   margin-left:auto;
   margin-right:auto;
   height:88%;
-  width:90%;
+  padding: 0 5%;
   overflow:auto;
 }
-
+.rc-info{
+  display: flex;
+  text-align: center;
+  margin:auto;
+  margin-top: 5%;
+  margin-bottom: 1%;
+  justify-content: space-around;
+}
+.rc-info-item{
+  display: flex;
+  flex-direction:column;
+  width:15%;
+}
+.rc-info-num{
+  flex:5;
+  color:white;
+  background: #27AE60;
+  width:100%;
+  font-size: 400%;
+  font-weight: 600;
+  border-top-left-radius: 11px;
+  border-top-right-radius: 11px;
+  border-bottom-right-radius: 11px;
+  border-bottom-left-radius: 11px;
+}
+.rc-info-text{
+  flex:2;
+}
+.rc-info-time{
+  color:gray;
+  font-size: 60%;
+  text-align: center;
+}
 </style>
-
-
+<!-- 头部 -->
 <div class="content-head">
   <span class="content-title">点名</span>
 </div>
+<!-- 主体 -->
 <div class="content-body">
-<div class="countries">
-  <div class="country" ng-repeat="country in countries"></div>
+<!-- 信息展示 -->
+<div class="rc-info">
+  <div class="rc-info-item"><div class="rc-info-num">{{current.all}}</div><div class="rc-info-text">参会国家数</div></div>
+  <div class="rc-info-item"><div class="rc-info-num">{{current.present}}</div><div class="rc-info-text">出席国家数</div></div>
+  <div class="rc-info-item"><div class="rc-info-num">{{current.simple}}</div><div class="rc-info-text">简单多数</div></div>
+  <div class="rc-info-item"><div class="rc-info-num">{{current.major}}</div><div class="rc-info-text">2/3多数</div></div>
+  <div class="rc-info-item"><div class="rc-info-num">{{current.onefifth}}</div><div class="rc-info-text">百分之二十数</div></div>
+</div>
+<div class="rc-info-time">更新时间：{{current.time_human}}</div>
+<a style="width:50%;margin:0 auto" class="text-center btn btn-large btn-info btn-block" href="#/rollcall/new">点名</a>
+<h4>历史记录</h4>
+<hr>
+<table class="table">
+  <!-- 表头 -->
+  <tr>
+    <th>时间</th>
+    <th>参会国家数</th>
+    <th>出席国家数</th>
+    <th>简单多数</th>
+    <th>2/3多数</th>
+    <th>百分之二十数</th>
+    <th></th>
+  </tr>
+  <tr ng-repeat="rc in history">
+    <td>{{rc.time_human}}</td>
+    <td>{{rc.all}}</td>
+    <td>{{rc.present}}</td>
+    <td>{{rc.simple}}</td>
+    <td>{{rc.major}}</td>
+    <td>{{rc.onefifth}}</td>
+    <td></td>
+  </tr>
+</table>
 </div>
 </div>

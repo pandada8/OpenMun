@@ -1,0 +1,117 @@
+<style type="text/css">
+.content-head{
+  height:12%;
+  width:100%;
+  background-color: #0D4E81;
+  color: white;
+  display:table;
+  padding:20px;
+}
+.content-title{
+  font-size:220%;
+  display:table-cell;
+  vertical-align:middle;
+}
+.content-body{
+  margin-left:auto;
+  margin-right:auto;
+  height:88%;
+  padding: 0 5%;
+  overflow:auto;
+}
+.info{
+  font-size:80%;
+  text-align:center;
+  margin:15px 0;
+}
+.rc-countrylist tr{
+  height:50px;
+}
+.rc-countrylist tr td:nth-child(1){
+  width:60px;
+}
+.rc-countrylist tr td:nth-child(4){
+  width:60px;
+}
+.rc-countrylist td{
+  vertical-align: middle !important;
+  text-align: center;
+}
+.flag{
+  width:57px;
+}
+.rc-countrylist .switch{
+  margin-bottom: -10px;
+}
+.rc-info{
+  display: flex;
+  text-align: center;
+  margin:auto;
+  margin-top: 5%;
+  margin-bottom: 1%;
+  justify-content: space-around;
+}
+.rc-info-item{
+  display: flex;
+  flex-direction:column;
+  width:15%;
+}
+.rc-info-num{
+  flex:5;
+  color:white;
+  background: #27AE60;
+  width:100%;
+  font-size: 400%;
+  font-weight: 600;
+  border-top-left-radius: 11px;
+  border-top-right-radius: 11px;
+  border-bottom-right-radius: 11px;
+  border-bottom-left-radius: 11px;
+}
+.rc-info-text{
+  flex:2;
+}
+.rc-info-time{
+  color:gray;
+  font-size: 60%;
+  text-align: center;
+}
+#submit{
+  display: block;
+  font-weight: 800;
+  width: 30%;
+  margin:50px auto;
+}
+</style>
+
+<!-- 头部 -->
+<div class="content-head">
+  <span class="content-title">新点名</span>
+</div>
+<!-- 主体 -->
+<div class="content-body">
+  <div class="info">共{{all_country.length}}个国家</div>
+  <!-- 国家列表 -->
+  <div class="rc-countrylist">
+    <table class="table">
+      <tr ng-repeat="country in all_country">
+        <td><img class='flag' ng-src="{{country.flag_url}}" alt=""></td>
+        <td>{{::country.chi_name}}</td>
+        <td>{{::country.eng_name}}</td>
+        <td><input mu-switch  ng-model="$parent.all_country[$index].present"  type="checkbox"  switch-size="large" switch-animate="true" switch-on-text="出席" switch-off-text="缺席"></td>
+      </tr>
+    </table>
+  </div>
+  <hr>
+  <h4>点名结果</h4>
+  <div class="rc-info">
+    <div class="rc-info-item"><div class="rc-info-num">{{all_country.length}}</div><div class="rc-info-text">全部国家数</div></div>
+    <div class="rc-info-item"><div class="rc-info-num">{{alive()}}</div><div class="rc-info-text">出席国家数</div></div>
+    <div class="rc-info-item"><div class="rc-info-num">{{simple}}</div><div class="rc-info-text">简单多数</div></div>
+    <div class="rc-info-item"><div class="rc-info-num">{{major}}</div><div class="rc-info-text">2/3多数</div></div>
+    <div class="rc-info-item"><div class="rc-info-num">{{onefifth}}</div><div class="rc-info-text">百分之二十数</div></div>
+  </div>
+
+  <button class="btn btn-large btn-embossed btn-primary" ng-click="submit()" id="submit">提交</button>
+</div>
+</div>

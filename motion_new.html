@@ -1,5 +1,3 @@
-<link rel="stylesheet" href="css/bootstrap.css">
-<link rel="stylesheet" href="css/main.css">
 <style type="text/css">
 .content-head{
 	height:12%;
@@ -32,8 +30,9 @@
 	padding:0;
 	display: flex;
 }
-h3{
+h4{
 	margin-top:50px;
+	font-weight: normal;
 }
 hr{
 	background-color:silver;
@@ -60,6 +59,43 @@ hr{
 .fail{
 	color: red;
 }
+.primary {
+  color: #ffffff;
+  background-color: #1abc9c;
+}
+.primary:hover,
+.primary:focus,
+.primary:active,
+.primary.active{
+  color: #ffffff;
+  background-color: #48c9b0;
+  border-color: #48c9b0;
+}
+.primary:active,
+.primary.active{
+  background: #16a085;
+  border-color: #16a085;
+}
+.info {
+  color: #ffffff;
+  background-color: #3498db;
+}
+.info:hover,
+.info:focus,
+.info:active,
+.info.active{
+  color: #ffffff;
+  background-color: #5dade2;
+  border-color: #5dade2;
+}
+.info:active,
+.info.active{
+  background: #2c81ba;
+  border-color: #2c81ba;
+}
+
+
+
 
 
 </style>
@@ -68,27 +104,28 @@ hr{
 </div>
 <div class="content-body">
 	<div class='real-body'>
-		<h3 class='action'>选择动议类型</h3>
+		<h4 class='action'>选择动议类型</h4>
 		<div class="btn-toolbar btn-toolbar-justified">
 			<div class="btn-group ">
-				<button class="btn btn-default btn-shadow" ng-click="click(1)" ng-class="{active:now==1}">{{motion_type.1}}</button>
+				<button class="btn btn-sm " ng-click="click(1)" ng-class="{info:now==1,primary:now!=1}">{{motion_type.1}}</button>
+
 			</div>
 			<div class="btn-group ">
-				<button class="btn btn-default btn-shadow" ng-click="click(2)" ng-class="{active:now==2}">{{motion_type.2}}</button>
+				<button class="btn btn-sm " ng-click="click(2)" ng-class="{info:now==2,primary:now!=2}">{{motion_type.2}}</button>
 			</div>
 			<div class='btn-group '>
-				<button class="btn btn-default btn-shadow" ng-click="click(3)" ng-class="{active:now==3}">{{motion_type.3}}</button>
-				<button class="btn btn-default btn-shadow" ng-click="click(4)" ng-class="{active:now==4}">{{motion_type.4}}</button>
-				<button class="btn btn-default btn-shadow" ng-click="click(5)" ng-class="{active:now==5}">{{motion_type.5}}</button>
-				<button class="btn btn-default btn-shadow" ng-click="click(6)" ng-class="{active:now==6}">{{motion_type.6}}</button>
+				<button class="btn btn-sm " ng-click="click(3)" ng-class="{info:now==3,primary:now!=3}">{{motion_type.3}}</button>
+				<button class="btn btn-sm " ng-click="click(4)" ng-class="{info:now==4,primary:now!=4}">{{motion_type.4}}</button>
+				<button class="btn btn-sm " ng-click="click(5)" ng-class="{info:now==5,primary:now!=5}">{{motion_type.5}}</button>
+				<button class="btn btn-sm " ng-click="click(6)" ng-class="{info:now==6,primary:now!=6}">{{motion_type.6}}</button>
 			</div>
 			<div class="btn-group ">
-				<button class="btn btn-default btn-shadow" ng-click="click(7)" ng-class="{active:now==7}">{{motion_type.7}}</button>
-				<button class="btn btn-default btn-shadow" ng-click="click(8)" ng-class="{active:now==8}">{{motion_type.8}}</button>
+				<button class="btn btn-sm " ng-click="click(7)" ng-class="{info:now==7,primary:now!=7}">{{motion_type.7}}</button>
+				<button class="btn btn-sm " ng-click="click(8)" ng-class="{info:now==8,primary:now!=8}">{{motion_type.8}}</button>
 			</div>
 		</div>
 		<hr >
-		<h3>{{_type}}</h3>
+		<h4>{{_type}}</h4>
 
 		<div class="form-group">
 			<!-- Type 1 -->
@@ -163,7 +200,7 @@ hr{
 		<div>
 			注意：本动议需要<span>{{people_require}}</span>以上支持<br>
 		</div>
-		<h3>附议人数</h3>
+		<h4>附议人数</h4>
 		<div class="text-center input-group input-group-lg" style="padding:0 20%">
 			<input type="text" ng-model="agree" class="form-control">
 			<div class="input-group-addon">人</div>
@@ -174,5 +211,5 @@ hr{
 <div class="content-bottom">
 	<div id="result" ng-class="{success:suc,fail:!suc}"  >结果 {{result}}</div>
 	<!-- FIXME 将上方的div放置妥当 -->
-	<a class="btn-lg btn-shadow btn-default btn text-center" id='back' ng-click="back()" >返回</a>
+	<a class="btn-lg  btn-default btn text-center" id='back' ng-click="back()" >返回</a>
 </div>

@@ -1,36 +1,43 @@
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh">
   <head>
     <meta charset="utf-8">
     <title>ZSMUN Online Couter</title>
     <!-- CSS -->
     <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/bootstrap-switch.css">
+    <link rel="stylesheet" href="css/flat-ui.css">
     <link rel="stylesheet" href="css/main.css">
+
     <!-- JS Library File -->
-    <script src="js/jquery.min.js"></script>
-    <script src="js/angular.min.js"></script>
-    <script src="js/angular-route.min.js"></script>
-    <script src="js/angular-sanitize.min.js"></script>
-    <script src="js/angular-animate.min.js"></script>
-    <script src="js/angular-resource.min.js"></script>
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap-switch.js"></script>
+    <script src="js/angular.js"></script>
+    <script src="js/angular-route.js"></script>
+    <script src="js/angular-sanitize.js"></script>
+    <script src="js/ui-bootstrap.js"></script>
+    
     <!-- Custom Logic -->
     <script src="controller/main.js"></script>
     <script src="services/store.js"></script>
     <script src="controller/MotionNew.js"></script>
     <script src="controller/RollCall.js"></script>
-  </head>
+    <script src="directive/mswitch.js"></script>
+    <script src="directive/timer.js"></script>
 
+  </head>
   <body ng-app="mun">
     <!-- side bar -->
-    <div class="col-xs-1 sidebar" ng-controller="MenuCon">
-    <div class="head-title-wrap">
-      <div class='head-title'>
-        <img src="pic/icon_small.png">
-        <div></div>
+    <div class="col-xs-1 sidebar" ng-controller="menucon">
+      <div class="head-title-wrap">
+        <div class='head-title'>
+          <img src="pic/icon_small.png">
+          <div></div>
+          <!-- FIXME 加入文字 -->
+        </div>
       </div>
-    </div>
-    <!-- FIXME 修正菜单侧边栏的颜色，重构 -->
+      <!-- FIXME 修正菜单侧边栏的颜色，重构 -->
       <ul class="nav nav-sidebar">
         <li ng-click="click(1)" ng-class="{active: active == 1}"><a>{{menu[1][0]}}</a></li>
         <li ng-click="click(2)" ng-class="{active: active == 2}"><a>{{menu[2][0]}}</a></li>
