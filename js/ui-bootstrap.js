@@ -3746,7 +3746,7 @@ angular.module('ui.bootstrap.typeahead', ['ui.bootstrap.position', 'ui.bootstrap
         select:'&'
       },
       replace:true,
-      templateUrl:'template/typeahead/typeahead-popup.html',
+      template:'<ul class="dropdown-menu" ng-if="isOpen()" ng-style="{top: position.top+\'px\', left: position.left+\'px\'}" style="display: block;" role="listbox" aria-hidden="{{!isOpen()}}"><li ng-repeat="match in matches track by $index" ng-class="{active: isActive($index) }" ng-mouseenter="selectActive($index)" ng-click="selectMatch($index)" role="option" id="{{match.id}}"><div typeahead-match index="$index" match="match" query="query" template-url="templateUrl"></div></li></ul>',
       link:function (scope, element, attrs) {
 
         scope.templateUrl = attrs.templateUrl;
@@ -3779,10 +3779,10 @@ angular.module('ui.bootstrap.typeahead', ['ui.bootstrap.position', 'ui.bootstrap
         query:'='
       },
       link:function (scope, element, attrs) {
-        var tplUrl = $parse(attrs.templateUrl)(scope.$parent) || 'template/typeahead/typeahead-match.html';
-        $http.get(tplUrl, {cache: $templateCache}).success(function(tplContent){
-           element.replaceWith($compile(tplContent.trim())(scope));
-        });
+        // var tplUrl = $parse(attrs.templateUrl)(scope.$parent) || 'template/typeahead/typeahead-match.html';
+        // $http.get(tplUrl, {cache: $templateCache}).success(function(tplContent){
+           element.replaceWith($compile('<a tabindex="-1" bind-html-unsafe="match.label | typeaheadHighlight:query"></a>')(scope));
+        // });
       }
     };
   }])

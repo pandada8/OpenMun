@@ -1,0 +1,106 @@
+<style>
+	.main{
+		width:550px;
+		position: absolute;
+		height: 80%; 
+		/*减去标题栏的高度*/
+		margin-top:20px;
+		margin-bottom: 20px;
+		margin-right: 20px;
+	/*	text-align: center;*/
+	}
+
+	.main > img {
+		width:550px;
+		top: 0;
+		bottom: 0;
+		margin: auto;
+		position: absolute;
+		z-index: -1000;
+		-webkit-filter: blur(10px);
+	}
+	.main > .ch{
+		font-size: 250%;
+		
+		text-align: center;
+		display: block;
+	}
+	.main > .en{
+		font-size: 150%;
+		
+		text-align: center;
+		display: block;
+	}
+	.main > div{
+		top: 0; left: 0; bottom: 0; right: 0; 
+		position: absolute;
+		margin:auto;
+	}
+	.right{
+		height: 80%;
+		margin:20px;
+		width:300px;
+		position: absolute;
+		right: 0px;
+	}
+	.right .table{
+		margin-top:10px;
+	}
+	.main .control{
+		position:relative;
+		top:450px;
+		text-align: center;
+
+	}
+
+	
+</style>
+
+<div class="content-head">
+  <span class="content-title">主发言名单</span>
+</div>
+<div class="content-body" >
+	<div class="main">
+		<img ng-src="{{current.flag_url}}">
+		<span class="ch">{{current.chi_name}}</span>
+		<span class="en">{{current.eng_name}}</span>	
+		<div mu-timer></div>
+		<div class="control">
+			<a ng-click="next()" class="btn btn-large btn-primary">下一个</a>
+			<a ng-click="reset()" class="btn btn-large btn-danger">重置</a>
+		</div>
+	</div>
+	
+	<div class="right">
+		<div class="input-group">
+			<input class='form-control' type="text" sf-typeahead options="exampleOptions" datasets="numbersDataset" ng-model="selectCountry">
+			<a class="input-group-addon" ng-click="add()">添加</a>
+		</div>
+		<!-- wait list -->
+		<table class='table'>
+			<tr ng-repeat="country in wait_list track by $index">
+				<td><img ng-src="{{country.flag_url}}" width='48'></td>
+				<td>{{country.eng_name}}</td>
+				<td><a ng-click='del($index)' class="">删除</a></td>
+			</tr>
+		</table>
+		
+
+
+	</div>
+	<!-- <div class="input-group">
+
+		
+		<a href="" class="btn">添加</a>
+	</div>
+	<ul>
+		<li ng-repeat="country in add_countries">
+			<img ng-src="{{country.flag_url}}">
+			<span>{{country.chi_name}}</span>
+		</li>
+	</ul>
+	<ul >
+
+		
+	</ul> -->
+</div>

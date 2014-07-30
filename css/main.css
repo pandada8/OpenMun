@@ -94,5 +94,24 @@
 	width:45%;
 	margin-bottom: 40px;
 }
-
+.content-head{
+  height:12%;
+  width:100%;
+  background-color: #0D4E81;
+  color: white;
+  display:table;
+  padding: 0 0 0 5%;
+}
+.content-title{
+  font-size:180%;
+  display:table-cell;
+  vertical-align:middle;
+}
+.content-body{
+  margin-left:auto;
+  margin-right:auto;
+  height:88%;
+  padding: 0 5%;
+  overflow:auto;
+}
 

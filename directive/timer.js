@@ -24,12 +24,12 @@ myModule.directive('muTimer', ['$interval',function($interval){
 		scope:{},
 		controller: function($scope, $element, $attrs, $transclude) {
 			
-			$scope._font_size = 50
+			$scope._font_size = 40
 			$scope._color = "#3498db" // Color of the Circle
 			$scope._bgcolor = "#7f8c8d" // Background
 			$scope._iacolor = "#bdc3c7" // Inactive
 			$scope._acolor = "#ff0000"
-			$scope._size = 300 // the height & width are same
+			$scope._size = 225 // the height & width are same
 			
 			$scope.maxNumber = 20
 			$scope.currentValue = $scope.maxNumber; 
@@ -48,10 +48,8 @@ myModule.directive('muTimer', ['$interval',function($interval){
 				s.css('font-size',$scope._font_size+'px')
 				s.css('height',$scope._size)
 				s.css('width',$scope._size)
-				s.css('position','absolute')
-				s.css('margin','auto')
-				s.css('top','0')
-				s.css('left','0')
+				s.css('position','relative')
+				s.css('top','-' + ($scope._size + 9) + 'px' )
 				s.css('color','grey')
 				s.css('text-align','center')
 			}
@@ -147,7 +145,7 @@ myModule.directive('muTimer', ['$interval',function($interval){
 		},
 		replace:true,
 		restrict: 'AE', // E = Element, A = Attribute, C = Class, M = Comment
-		template:'<div><canvas class="time-canvas"></canvas><span ng-click="click()" ng-dblclick="reset()" class="lefttime"></span></div>',
+		template:'<div><canvas class="time-canvas"></canvas><div ng-click="click()" ></div></div>',
 		link: function($scope, iElm, iAttrs, controller) {
 			$scope._c = iElm[0].children[0]
 			$scope._c2 = iElm[0].children[1]
@@ -155,7 +153,6 @@ myModule.directive('muTimer', ['$interval',function($interval){
 			$scope.initfc()
 			$scope.updateUI()
 			$scope._c2.innerHTML = Math.floor($scope.maxNumber - $scope.tick * TICK / 1000)+ " sec"
-			console.log($scope._c2.innerHTML)
 		},
 
 	};

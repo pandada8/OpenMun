@@ -1,7 +1,8 @@
-<!-- <script src="js/bootstrap-switch.js"></script> -->
-<!--     <link rel="stylesheet" href="css/bootstrap.css">
-    <link rel="stylesheet" href="css/flat-ui.css">
-    <link rel="stylesheet" href="css/main.css"> -->
 
-<div mu-timer></div>
-<button class="btn">Reset</button>
+
+<div class="input-group">
+	<input class='form-control' type="text" sf-typeahead options="exampleOptions" datasets="numbersDataset" ng-model="selectCountry">
+	<a href="" class="input-group-addon">测试</a>
+</div>
+
+{{selectCountry | json}}

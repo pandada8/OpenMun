@@ -1,6 +1,6 @@
 VERSION = '0.0-Alpha'
 
-var mun = angular.module('mun',['ngRoute','ngSanitize','ui.bootstrap']);
+var mun = angular.module('mun',['ngRoute','ngSanitize','siyfion.sfTypeahead']);
 // Config the Route
 mun.config(['$routeProvider','$locationProvider',function($routeProvider,$locationProvider) {
 	$routeProvider.when('/',{
@@ -20,6 +20,17 @@ mun.config(['$routeProvider','$locationProvider',function($routeProvider,$locati
 	}).when("/test",{
 		templateUrl:'test.html',
 		controller:'test'
+	}).when("/speaklist",{
+		templateUrl:'speaklist.html',
+		controller:'SpeakList'
+	}).when("/statistic",{
+		templateUrl:'lazy.html'
+	}).when("/vote",{
+		templateUrl:'vote.html',
+		controller:"VoteCon"
+	}).when("/vote/new",{
+		templateUrl:'vote_new.html',
+		controller:'VoteNewCon'
 	})
 }])
 mun.controller("menucon",["$scope","$location",function($scope,$location){
@@ -34,13 +45,14 @@ mun.controller("menucon",["$scope","$location",function($scope,$location){
 	}
 	$scope.click = function(num){
 		$scope.active = num
+		console.log($scope.active)
 		$location.path($scope.menu[num][1])
 	}
 
 }])
 
 mun.controller('test',['$scope',function($scope){
-	console.log('')
+
 }])
 
 mun.controller('AboutController', ['$scope', function($scope){
@@ -103,5 +115,13 @@ function Country(chi,eng,flag,short){
 	ret.flag_url = flag
 	ret.present = false
 	ret.short = short
+	return ret
+}
+function Vote(agree,oppose,abstain,topic,pass){
+	ret = {}
+	ret.time = Date.now()
+	ret.country = {'agree':agree,'oppose':oppose,'abstain':abstain}
+	ret.topic = topic
+	ret.pass = pass
 	return ret
 }

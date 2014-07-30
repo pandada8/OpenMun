@@ -1,0 +1,33 @@
+<style>
+	.pass{
+		color:#2ecc71;
+	}
+	.fail{
+		color:#ec7063;
+	}
+	tr td:nth-child(1){
+		width:30%;
+	}
+</style>
+
+<div class="content-head">
+  <span class="content-title">投票</span>
+</div>
+<div class="content-body" >
+	<a style="width:50%;margin:50px auto" class="text-center btn btn-large btn-info btn-block" href="#/vote/new">开始新投票</a>
+	<h3>历史投票</h3>
+	<hr>
+	<table class="table">
+		<tr>
+			<td>时间</td>
+			<td>内容</td>
+			<td>结果</td>
+		</tr>
+		<tr ng-repeat="vote in history_votes">
+			<td>{{time(vote)}}</td>
+			<td>{{content(vote)}}</td>
+			<td ng-bind-html="::result(vote)"></td>
+		</tr>
+	</table>
+
+</div>

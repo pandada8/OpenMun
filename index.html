@@ -13,18 +13,32 @@
     <!-- JS Library File -->
     <script src="js/jquery.js"></script>
     <script src="js/bootstrap-switch.js"></script>
+    <script src="js/typeahead.bundle.js"></script>
     <script src="js/angular.js"></script>
     <script src="js/angular-route.js"></script>
     <script src="js/angular-sanitize.js"></script>
-    <script src="js/ui-bootstrap.js"></script>
+    <script src="js/angular-typeahead.js"></script>
+    <script src="js/typeahead.bundle.js"></script>
+    <!-- <script src="js/ui-bootstrap.js"></script> -->
     
     <!-- Custom Logic -->
     <script src="controller/main.js"></script>
     <script src="services/store.js"></script>
     <script src="controller/MotionNew.js"></script>
     <script src="controller/RollCall.js"></script>
+    <script src="controller/Speaklist.js"></script>
+    <script src="controller/vote.js"></script>
     <script src="directive/mswitch.js"></script>
     <script src="directive/timer.js"></script>
+
+    <!-- Cache of the template -->
+    <script type="text/ng-template" id="typeahead_temp.html">
+    <a>
+      <img ng-src="{{match.model.flag_url}}" width="16">
+      <span bind-html-unsafe="match.label | typeaheadHighlight:query"></span>
+    </a>
+  </script>
+ 
 
   </head>
   <body ng-app="mun">
