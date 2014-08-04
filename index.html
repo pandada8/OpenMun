@@ -1,0 +1,96 @@
+
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="utf-8">
+    <title>ZSMUN Online Couter</title>
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/bootstrap-switch.css">
+    <link rel="stylesheet" href="css/main.css">
+
+    <!-- JS Library File -->
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap-switch.js"></script>
+    <script src="js/angular.js"></script>
+    <script src="js/angular-route.js"></script>
+    <script src="js/ui-bootstrap-tpls.js"></script>
+    <script src="js/ui-utils.js"></script>
+    <!-- Custom Logic -->
+    <script src="controller/main.js"></script>
+    <script src="controller/MotionNew.js"></script>
+    <script src="controller/RollCall.js"></script>
+    <script src="controller/Speaklist.js"></script>
+    <script src="controller/vote.js"></script>
+    <script src="controller/setting.js"></script>
+    <script src="directive/mswitch.js"></script>
+    <script src="directive/timer.js"></script>
+
+
+  </head>
+  <body ng-app="mun">
+  <script type="text/ng-template" id="typeaheadTemp.html">
+    <a>
+        <img ng-src="{{match.model.flag_url}}" width="16">
+        <span bind-html-unsafe="match.label | typeaheadHighlight:query"></span>
+    </a>
+  </script>
+  <script type="text/ng-template" id="modaltpl.html">
+    <div class="modal-header">
+      <h3 class="modal-title">投票结果</h3>
+    </div>
+    <div class="modal-body">
+      <div ng-if="yes.length">
+        <h4>赞成</h4>
+        <ul>
+         <li ng-repeat="c in yes track by $index">{{c.chi_name}}</li>
+        </ul>
+      </div>
+      <div ng-if="no.length">
+        <h4>反对</h4>
+        <ul>
+          <li ng-repeat="c in no track by $index">{{c.chi_name}}</li>
+        </ul>
+      </div>
+      <div ng-if="abstain.length">
+        <h4>弃权</h4>
+        <ul>
+          <li ng-repeat="c in abstain track by $index">{{c.chi_name}}</li>
+        </ul>
+      </div>
+      <div ng-style="style">
+        {{detail}}
+      </div>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-primary" ng-click="close()">确认</button>
+    </div>
+  </script>
+    <!-- side bar -->
+    <div class="col-xs-1 sidebar" ng-controller="menucon">
+      <div class="head-title-wrap">
+        <div class='head-title'>
+          <img src="pic/icon_small.png">
+          <div></div>
+          <!-- FIXME 加入文字 -->
+        </div>
+      </div>
+      <!-- FIXME 修正菜单侧边栏的颜色，重构 -->
+      <ul class="nav nav-sidebar">
+        <li ng-click="click(1)" ng-class="{active: active == 1}"><a>{{menu[1][0]}}</a></li>
+        <li ng-click="click(2)" ng-class="{active: active == 2}"><a>{{menu[2][0]}}</a></li>
+        <li ng-click="click(3)" ng-class="{active: active == 3}"><a>{{menu[3][0]}}</a></li>
+        <li ng-click="click(4)" ng-class="{active: active == 4}"><a>{{menu[4][0]}}</a></li>
+      </ul>
+      <ul class="nav nav-sidebar">
+        <li ng-click="click(5)" ng-class="{active: active == 5}"><a>{{menu[5][0]}}</a></li>
+        <li ng-click="click(6)" ng-class="{active: active == 6}"><a>{{menu[6][0]}}</a></li>
+        <li ng-click="click(7)" ng-class="{active: active == 7}"><a>{{menu[7][0]}}</a></li>
+      </ul>
+      <div id="sidebar-bottom"><span>由舟山模联强力驱动</span></div>
+    </div>
+    <!-- content -->
+    <!-- The HTML will be replaced by template -->
+    <div id="content" class="col-xs-11 col-xs-offset-1" ng-view></div>
+  </body>
+</html>

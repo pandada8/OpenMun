@@ -1,0 +1,40 @@
+<style>
+	tr td:nth-child(1){
+		width:30%;
+	}
+	tr td:nth-child(3){
+		text-align: right;
+	}
+</style>
+
+<div class="content-head">
+  <span class="content-title">投票</span>
+</div>
+<div class="content-body" >
+	<div class="form-group">
+		<h3>新投票</h3>
+		<div class="input-group">
+			<input type="text" class="form-control" ui-keypress="{13:'new()'}" ng-model='new_topic'>
+			<a class="input-group-addon" ng-click="new()">新投票</a>
+		</div>
+	</div>
+	
+	<h3>历史投票</h3>
+	<hr>
+	<table class="table" ng-show="::history_votes.length">
+		<tr>
+			<td>时间</td>
+			<td>内容</td>
+			<td>结果</td>
+		</tr>
+		<tr ng-repeat="vote in history_votes track by $index">
+			<td>{{vote.time}}</td>
+			<td>{{vote.topic}}</td>
+			<td ng-class="{pass:vote.pass,fail:!vote.pass}">{{vote.detail}}</td>
+		</tr>
+	</table>
+	<div class="text-center" ng-show='!history_votes.length'>
+		<h5>没有当天的历史数据</h5>
+	</div>
+
+</div>

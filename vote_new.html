@@ -1,0 +1,39 @@
+<style>
+	.content-body{
+		padding-top: 10px;
+	}
+	tr > td:nth-child(1){
+		width: 10%;
+	}
+	tr > td:nth-child(3){
+		text-align: right;
+	}
+	td{
+		vertical-align: middle !important;
+	}
+</style>
+<div class="content-head">
+  <span class="content-title">新投票:{{topic}}</span>
+</div>
+<div class="content-body" >
+	<div class="text-center">
+		<h3>{{round}}</h3>
+	</div>
+	<hr>
+	<table class="table">
+		<tr ng-repeat="country in all_country">
+			<td><img width="60" ng-src="{{country.flag_url}}"></td>
+			<td>{{country.chi_name}}</td>
+			<td>
+				<div class="btn-group">
+        			<label class="btn btn-success" ng-model="result[country['short']]" btn-radio="'yes'">Yes</label>
+        			<label class="btn btn-success" ng-model="result[country['short']]" btn-radio="'no'">No</label>
+        			<label class="btn btn-success" ng-model="result[country['short']]" ng-if="round=='第一轮'" btn-radio="'pass'">Pass</label>
+        			<label class="btn btn-success" ng-model="result[country['short']]" ng-if="round=='第一轮'" btn-radio="'abstain'">Abstain</label>
+    			</div>
+    		</td>
+		</tr>
+	</table>
+	<div ng-if="round=='第二轮'">{{}}</div>
+	<button class="btn btn-embossed btn-large btn-primary btn-block" style="margin:50px auto;width:30%;" ng-click="submit()">提交</button>
+</div>

@@ -1,0 +1,62 @@
+[
+    {
+        "chi_name": "中华民国",
+        "short": "ROC",
+        "eng_name": "China",
+        "flag_url": "i/ROC.png"
+    },
+    {
+        "chi_name": "英国",
+        "short": "GBR",
+        "eng_name": "England",
+        "flag_url": "i/GBR.png"
+    },
+    {
+        "chi_name": "南斯拉夫",
+        "short": "YUG",
+        "eng_name": "Yugoslavia",
+        "flag_url": "i/YUG.png"
+    },
+    {
+        "chi_name": "美国",
+        "short": "USA",
+        "eng_name": "United States",
+        "flag_url": "i/USA.png"
+    },
+    {
+        "chi_name": "苏联",
+        "short": "SOC",
+        "eng_name": "Union of Soviet",
+        "flag_url": "i/SOC.png"
+    },
+    {
+        "chi_name": "古巴",
+        "short": "CUB",
+        "eng_name": "Cuba",
+        "flag_url": "i/CUB.png"
+    },
+    {
+        "chi_name": "厄瓜多尔",
+        "short": "ECU",
+        "eng_name": "Ecuador",
+        "flag_url": "i/ECU.png"
+    },
+    {
+        "chi_name": "埃及",
+        "short": "EGY",
+        "eng_name": "Egypt",
+        "flag_url": "i/EGY.png"
+    },
+    {
+        "chi_name": "印度",
+        "short": "IND",
+        "eng_name": "India",
+        "flag_url": "i/IND.png"
+    },
+    {
+        "chi_name": "挪威",
+        "short": "NOR",
+        "eng_name": "Norway",
+        "flag_url": "i/NOR.png"
+    }
+]

@@ -1,0 +1,65 @@
+<style type="text/css">
+.info{
+  font-size:80%;
+  text-align:center;
+  margin:15px 0;
+}
+.rc-countrylist tr{
+  height:50px;
+}
+.rc-countrylist tr td:nth-child(1){
+  width:60px;
+}
+.rc-countrylist tr td:nth-child(4){
+  width:60px;
+}
+.rc-countrylist td{
+  vertical-align: middle !important;
+  text-align: center;
+}
+.flag{
+  width:57px;
+}
+.rc-countrylist .switch{
+  margin-bottom: -10px;
+}
+
+#submit{
+  display: block;
+  font-weight: 800;
+  width: 30%;
+  margin:50px auto;
+}
+</style>
+
+<!-- 头部 -->
+<div class="content-head">
+  <span class="content-title">新点名</span>
+</div>
+<!-- 主体 -->
+<div class="content-body">
+  <div class="info">共{{all_country.length}}个国家</div>
+  <!-- 国家列表 -->
+  <div class="rc-countrylist">
+    <table class="table">
+      <tr ng-repeat="country in all_country">
+        <td><img class='flag' ng-src="{{country.flag_url}}" alt=""></td>
+        <td>{{::country.chi_name}}</td>
+        <td>{{::country.eng_name}}</td>
+        <td><input mu-switch  ng-model="alives[country.short]"  type="checkbox"  switch-size="large" switch-animate="true" switch-on-text="出席" switch-off-text="缺席"></td>
+      </tr>
+    </table>
+  </div>
+  <hr>
+  <h4>点名结果</h4>
+  <div class="rc-info">
+    <div class="rc-info-item"><div class="rc-info-num">{{all_country.length}}</div><div class="rc-info-text">全部国家数</div></div>
+    <div class="rc-info-item"><div class="rc-info-num">{{alive()}}</div><div class="rc-info-text">出席国家数</div></div>
+    <div class="rc-info-item"><div class="rc-info-num">{{simple}}</div><div class="rc-info-text">简单多数</div></div>
+    <div class="rc-info-item"><div class="rc-info-num">{{major}}</div><div class="rc-info-text">2/3多数</div></div>
+    <div class="rc-info-item"><div class="rc-info-num">{{onefifth}}</div><div class="rc-info-text">百分之二十数</div></div>
+  </div>
+
+  <button class="btn btn-large btn-embossed btn-primary" ng-click="submit()" id="submit">提交</button>
+</div>
+</div>
