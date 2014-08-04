@@ -7,41 +7,65 @@
     <!-- CSS -->
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="css/bootstrap-switch.css">
-    <link rel="stylesheet" href="css/flat-ui.css">
     <link rel="stylesheet" href="css/main.css">
 
     <!-- JS Library File -->
     <script src="js/jquery.js"></script>
     <script src="js/bootstrap-switch.js"></script>
-    <script src="js/typeahead.bundle.js"></script>
     <script src="js/angular.js"></script>
     <script src="js/angular-route.js"></script>
-    <script src="js/angular-sanitize.js"></script>
-    <script src="js/angular-typeahead.js"></script>
-    <script src="js/typeahead.bundle.js"></script>
-    <!-- <script src="js/ui-bootstrap.js"></script> -->
-    
+    <script src="js/ui-bootstrap-tpls.js"></script>
+    <script src="js/ui-utils.js"></script>
     <!-- Custom Logic -->
     <script src="controller/main.js"></script>
-    <script src="services/store.js"></script>
     <script src="controller/MotionNew.js"></script>
     <script src="controller/RollCall.js"></script>
     <script src="controller/Speaklist.js"></script>
     <script src="controller/vote.js"></script>
+    <script src="controller/setting.js"></script>
     <script src="directive/mswitch.js"></script>
     <script src="directive/timer.js"></script>
 
-    <!-- Cache of the template -->
-    <script type="text/ng-template" id="typeahead_temp.html">
-    <a>
-      <img ng-src="{{match.model.flag_url}}" width="16">
-      <span bind-html-unsafe="match.label | typeaheadHighlight:query"></span>
-    </a>
-  </script>
- 
 
   </head>
   <body ng-app="mun">
+  <script type="text/ng-template" id="typeaheadTemp.html">
+    <a>
+        <img ng-src="{{match.model.flag_url}}" width="16">
+        <span bind-html-unsafe="match.label | typeaheadHighlight:query"></span>
+    </a>
+  </script>
+  <script type="text/ng-template" id="modaltpl.html">
+    <div class="modal-header">
+      <h3 class="modal-title">投票结果</h3>
+    </div>
+    <div class="modal-body">
+      <div ng-if="yes.length">
+        <h4>赞成</h4>
+        <ul>
+         <li ng-repeat="c in yes track by $index">{{c.chi_name}}</li>
+        </ul>
+      </div>
+      <div ng-if="no.length">
+        <h4>反对</h4>
+        <ul>
+          <li ng-repeat="c in no track by $index">{{c.chi_name}}</li>
+        </ul>
+      </div>
+      <div ng-if="abstain.length">
+        <h4>弃权</h4>
+        <ul>
+          <li ng-repeat="c in abstain track by $index">{{c.chi_name}}</li>
+        </ul>
+      </div>
+      <div ng-style="style">
+        {{detail}}
+      </div>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-primary" ng-click="close()">确认</button>
+    </div>
+  </script>
     <!-- side bar -->
     <div class="col-xs-1 sidebar" ng-controller="menucon">
       <div class="head-title-wrap">

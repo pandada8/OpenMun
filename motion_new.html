@@ -17,90 +17,32 @@ hr{
 	background-color:silver;
 	height:1px;
 }
-#result{
-	margin:auto;
-	flex:5;
-	text-align: center;
-	font-size: 250%;
-	font-weight: 700;
-	color:white;
-}
-#back{
-	margin:auto;
-	flex:1;
-	margin-right: 14%;
-	margin-left: 14%;
-
-}
-.success{
-	color:green;
-}
-.fail{
-	color: red;
-}
-.primary {
-  color: #ffffff;
-  background-color: #1abc9c;
-}
-.primary:hover,
-.primary:focus,
-.primary:active,
-.primary.active{
-  color: #ffffff;
-  background-color: #48c9b0;
-  border-color: #48c9b0;
-}
-.primary:active,
-.primary.active{
-  background: #16a085;
-  border-color: #16a085;
-}
-.info {
-  color: #ffffff;
-  background-color: #3498db;
-}
-.info:hover,
-.info:focus,
-.info:active,
-.info.active{
-  color: #ffffff;
-  background-color: #5dade2;
-  border-color: #5dade2;
-}
-.info:active,
-.info.active{
-  background: #2c81ba;
-  border-color: #2c81ba;
-}
-
-
-
-
-
 </style>
 <div class="content-head">
 	<span class="content-title">新动议</span>
 </div>
 <div class="content-body">
 	<div class='real-body'>
+		<h4>发起国</h4>
+		<input type="text" ng-model="sponsor" typeahead="country as country.eng_name for country in all_country | filter:{eng_name:$viewValue}" typeahead-template-url="typeaheadTemp.html" class="form-control">
 		<h4 class='action'>选择动议类型</h4>
 		<div class="btn-toolbar btn-toolbar-justified">
 			<div class="btn-group ">
-				<button class="btn btn-sm " ng-click="click(1)" ng-class="{info:now==1,primary:now!=1}">{{motion_type.1}}</button>
+				<button class="btn btn-sm btn-success" ng-click="click(1)" ng-class="{active:now==1}">{{motion_type.1}}</button>
 
 			</div>
 			<div class="btn-group ">
-				<button class="btn btn-sm " ng-click="click(2)" ng-class="{info:now==2,primary:now!=2}">{{motion_type.2}}</button>
+				<button class="btn btn-sm btn-success" ng-click="click(2)" ng-class="{active:now==2}">{{motion_type.2}}</button>
 			</div>
 			<div class='btn-group '>
-				<button class="btn btn-sm " ng-click="click(3)" ng-class="{info:now==3,primary:now!=3}">{{motion_type.3}}</button>
-				<button class="btn btn-sm " ng-click="click(4)" ng-class="{info:now==4,primary:now!=4}">{{motion_type.4}}</button>
-				<button class="btn btn-sm " ng-click="click(5)" ng-class="{info:now==5,primary:now!=5}">{{motion_type.5}}</button>
-				<button class="btn btn-sm " ng-click="click(6)" ng-class="{info:now==6,primary:now!=6}">{{motion_type.6}}</button>
+				<button class="btn btn-sm btn-success" ng-click="click(3)" ng-class="{active:now==3}">{{motion_type.3}}</button>
+				<button class="btn btn-sm btn-success" ng-click="click(4)" ng-class="{active:now==4}">{{motion_type.4}}</button>
+				<button class="btn btn-sm btn-success" ng-click="click(5)" ng-class="{active:now==5}">{{motion_type.5}}</button>
+				<button class="btn btn-sm btn-success" ng-click="click(6)" ng-class="{active:now==6}">{{motion_type.6}}</button>
 			</div>
 			<div class="btn-group ">
-				<button class="btn btn-sm " ng-click="click(7)" ng-class="{info:now==7,primary:now!=7}">{{motion_type.7}}</button>
-				<button class="btn btn-sm " ng-click="click(8)" ng-class="{info:now==8,primary:now!=8}">{{motion_type.8}}</button>
+				<button class="btn btn-sm btn-success" ng-click="click(7)" ng-class="{active:now==7}">{{motion_type.7}}</button>
+				<button class="btn btn-sm btn-success" ng-click="click(8)" ng-class="{active:now==8}">{{motion_type.8}}</button>
 			</div>
 		</div>
 		<hr >
@@ -173,22 +115,18 @@ hr{
 			<!-- Type 8 -->
 			<div ng-show="now == 8">
 				<p>请两位赞成此动议及两位反对此动议的代表交替发言阐述理由,由赞成该动议的第一位代表首先发言,发言时间为九十秒,发言时间不能让渡;当所有代表均已阐述己方的理由之后,将自动进入对该动议的投票阶段</p>
-				<!-- FIXME 加入计时器组件 -->
+				<div mu-timer style="margin:auto"></div>
+
 			</div>
 		</div>
 		<div>
-			注意：本动议需要<span>{{people_require}}</span>以上支持<br>
+			注意：本动议需要<span>{{people_require}}</span>票以上支持<br>
 		</div>
-		<h4>附议人数</h4>
+		<h4>附议数</h4>
 		<div class="text-center input-group input-group-lg" style="padding:0 20%">
 			<input type="text" ng-model="agree" class="form-control">
-			<div class="input-group-addon">人</div>
+			<a class="input-group-addon" ng-click="submit()">提交</a>
 		</div>
 	</div>
 </div>
-<!-- 底部呈现结果区 -->
-<div class="content-bottom">
-	<div id="result" ng-class="{success:suc,fail:!suc}"  >结果 {{result}}</div>
-	<!-- FIXME 将上方的div放置妥当 -->
-	<a class="btn-lg  btn-default btn text-center" id='back' ng-click="back()" >返回</a>
-</div>
+

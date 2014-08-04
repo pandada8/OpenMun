@@ -23,39 +23,7 @@
 .rc-countrylist .switch{
   margin-bottom: -10px;
 }
-.rc-info{
-  display: flex;
-  text-align: center;
-  margin:auto;
-  margin-top: 5%;
-  margin-bottom: 1%;
-  justify-content: space-around;
-}
-.rc-info-item{
-  display: flex;
-  flex-direction:column;
-  width:15%;
-}
-.rc-info-num{
-  flex:5;
-  color:white;
-  background: #27AE60;
-  width:100%;
-  font-size: 400%;
-  font-weight: 600;
-  border-top-left-radius: 11px;
-  border-top-right-radius: 11px;
-  border-bottom-right-radius: 11px;
-  border-bottom-left-radius: 11px;
-}
-.rc-info-text{
-  flex:2;
-}
-.rc-info-time{
-  color:gray;
-  font-size: 60%;
-  text-align: center;
-}
+
 #submit{
   display: block;
   font-weight: 800;
@@ -78,7 +46,7 @@
         <td><img class='flag' ng-src="{{country.flag_url}}" alt=""></td>
         <td>{{::country.chi_name}}</td>
         <td>{{::country.eng_name}}</td>
-        <td><input mu-switch  ng-model="$parent.all_country[$index].present"  type="checkbox"  switch-size="large" switch-animate="true" switch-on-text="出席" switch-off-text="缺席"></td>
+        <td><input mu-switch  ng-model="alives[country.short]"  type="checkbox"  switch-size="large" switch-animate="true" switch-on-text="出席" switch-off-text="缺席"></td>
       </tr>
     </table>
   </div>

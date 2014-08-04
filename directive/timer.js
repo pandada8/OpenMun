@@ -5,23 +5,10 @@ var myModule = angular.module('mun')
 * http://gsgd.co.uk/sandbox/jquery/easing/jquery.easing.1.3.js
 * with a little change
 */ 
-var easingHelper = function (t) {
-	
-	b = Math.floor(t)
-	t = t - Math.floor(t)
-	if ((t/=1) < (1/2.75)) {
-		return 1*(7.5625*t*t) + b;
-	} else if (t < (2/2.75)) {
-		return 1*(7.5625*(t-=(1.5/2.75))*t + .75) + b;
-	} else if (t < (2.5/2.75)) {
-		return 1*(7.5625*(t-=(2.25/2.75))*t + .9375) + b;
-	} else {
-		return 1*(7.5625*(t-=(2.625/2.75))*t + .984375) + b;
-	}
-}
-myModule.directive('muTimer', ['$interval',function($interval){
+
+myModule.directive('muTimer', ['$interval','$rootScope',function($interval,$rootScope){
 	return {
-		scope:{},
+		scope:true,
 		controller: function($scope, $element, $attrs, $transclude) {
 			
 			$scope._font_size = 40
@@ -29,9 +16,9 @@ myModule.directive('muTimer', ['$interval',function($interval){
 			$scope._bgcolor = "#7f8c8d" // Background
 			$scope._iacolor = "#bdc3c7" // Inactive
 			$scope._acolor = "#ff0000"
-			$scope._size = 225 // the height & width are same
+			 // the height & width are same
 			
-			$scope.maxNumber = 20
+			// $scope.maxNumber = $rootScope.Data.setting.speaklist_time //  ATTENTION Change eachtime here
 			$scope.currentValue = $scope.maxNumber; 
 			$scope.style = 'smooth'
 			$scope.running = false
@@ -52,6 +39,12 @@ myModule.directive('muTimer', ['$interval',function($interval){
 				s.css('top','-' + ($scope._size + 9) + 'px' )
 				s.css('color','grey')
 				s.css('text-align','center')
+				s.css('text-shadow','0 0 8px #FFF')
+				var b = angular.element($element[0].children[2])
+				b.css('position','relative');
+				b.css('top','-133%');
+				b.css('margin','auto');
+				b.css('display',"block")
 			}
 			
 			$scope.updateUI = function(){
@@ -99,26 +92,18 @@ myModule.directive('muTimer', ['$interval',function($interval){
 				if ($scope.running ){
 					if ( ($scope.tick+1) * TICK <= $scope.maxNumber * 1000 ){
 						$scope.tick += 1
-						switch($scope.style){
-							case 'easing':
-								var t = easingHelper($scope.maxNumber - $scope.tick * TICK / 1000)
-								$scope.currentValue = t >= 0 ? t : 0
-								break
-							case 'smooth':
-							default:
-								$scope.currentValue-=TICK / 1000;
-						}
-					}else{
-						$interval.cancel($scope.promise)
-						$scope.running = false
-						angular.element($element[0].children[1]).css('color','grey')
-						$scope.tick = Math.floor($scope.maxNumber*1000/TICK)
-						$scope.currentValue = 0
+						$scope.currentValue-=TICK / 1000;
 					}
-					$scope.updateUI()
+				}else{
+					$interval.cancel($scope.promise)
+					$scope.running = false
+					angular.element($element[0].children[1]).css('color','grey')
+					$scope.tick = Math.floor($scope.maxNumber*1000/TICK)
+					$scope.currentValue = 0
 				}
+				$scope.updateUI()
 			}
-			$scope.click = function(){
+			$scope.click = function(f){
 				if ($scope.running){
 					$interval.cancel($scope.promise)
 					$scope.running = false
@@ -131,6 +116,9 @@ myModule.directive('muTimer', ['$interval',function($interval){
 						$scope.promise = $interval($scope.countdown,TICK)
 					}
 				}
+				if ($scope.callback && !f){
+					$scope.callback()
+				}
 			}
 			$scope.reset = function(max,current){
 				if ($scope.running){
@@ -141,11 +129,19 @@ myModule.directive('muTimer', ['$interval',function($interval){
 				$scope.currentValue = $scope.maxNumber
 				$scope.updateUI()
 			}
-			$scope.$on("destroy")
+			$scope.pause = function(){
+				if ($scope.running){
+					$interval.cancel($scope.promise)
+					$scope.running = false
+					angular.element($element[0].children[1]).css('color','grey')
+					$scope.updateUI()
+				}
+			}
+			
 		},
 		replace:true,
 		restrict: 'AE', // E = Element, A = Attribute, C = Class, M = Comment
-		template:'<div><canvas class="time-canvas"></canvas><div ng-click="click()" ></div></div>',
+		template:'<div><canvas class="time-canvas"></canvas><div ng-click="click()" ></div><button class="btn btn-danger" ng-click="reset()">重置</button></div>',
 		link: function($scope, iElm, iAttrs, controller) {
 			$scope._c = iElm[0].children[0]
 			$scope._c2 = iElm[0].children[1]

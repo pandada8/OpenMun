@@ -1,0 +1,24 @@
+
+<div class="content-head">
+  <span class="content-title">动议</span>
+</div>
+<div class="content-body">
+	<a style="margin:50px auto;width:30%;text-align:center;display:block;" href="#/motion/new" class="btn btn-primary btn-large btn-embossed">新动议</a>
+	<h3>历史记录</h3>
+	<table style="font-size:80%" class="table">
+		<tr>
+			<td>时间</td>
+			<td>类型</td>
+			<td>发起国</td>
+			<td>概述</td>
+			<td>结果</td>
+		</tr>
+		<tr ng-repeat='motion in motion_his'>
+			<td>{{motion.time}}</td>
+			<td>{{motion.type}}</td>
+			<td>{{motion.sponsor.chi_name}}</td>
+			<td>{{motion.info}}</td>
+			<td ng-class="{pass:motion.pass,fail:!motion.pass}">{{motion.result}}</td>
+		</tr>
+	</table>
+</div>
