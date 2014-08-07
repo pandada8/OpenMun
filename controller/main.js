@@ -67,7 +67,7 @@ mun.controller("menucon",["$scope","$location","$rootScope",'$http',function($sc
 	// 初始化全部国家名单
 	// 鉴于目前只有这一处需要用到网络，暂时使用 `http`
 	// 懒得写错误处理了
-	$http.get('/data.json').success(function(data,status,headers,config){
+	$http.get('data.json').success(function(data,status,headers,config){
 		$rootScope.Data.all_country = data
 		$rootScope.Data.alive_country = []
 		if ($rootScope.Data.current_rc){

@@ -152,7 +152,7 @@ angular.module('mun').controller('MotionNew', ["$scope", '$rootScope', '$locatio
     data = {
       'topic':$scope.topic,
       'time':t.toLocaleString(),
-      'timestamp':t.getTime(),
+      'timestamp':t.getTime(),  
       'agree':$rootScope.temp_data.agree,
       'sponsor':$rootScope.temp_data.sponsor,
       'attend':$scope.history,
