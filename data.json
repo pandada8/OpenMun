@@ -58,5 +58,11 @@
         "short": "NOR",
         "eng_name": "Norway",
         "flag_url": "i/NOR.png"
+    },
+    {
+        "chi_name": "法国",
+        "short": "FRA",
+        "eng_name": "France",
+        "flag_url": "i/FRA.png"
     }
 ]
