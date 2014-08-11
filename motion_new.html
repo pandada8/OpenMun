@@ -1,7 +1,6 @@
 <style type="text/css">
 .content-bottom{
 	background-color:#0D4E81;
-	/*TODO: 更改颜色*/
 	height:12%;
 	width:100%;
 	position:absolute;
@@ -116,13 +115,12 @@ hr{
 			<div ng-show="now == 8">
 				<p>请两位赞成此动议及两位反对此动议的代表交替发言阐述理由,由赞成该动议的第一位代表首先发言,发言时间为九十秒,发言时间不能让渡;当所有代表均已阐述己方的理由之后,将自动进入对该动议的投票阶段</p>
 				<div mu-timer style="margin:auto"></div>
-
 			</div>
 		</div>
 		<div>
 			注意：本动议需要<span>{{people_require}}</span>票以上支持<br>
 		</div>
-		<h4>附议数</h4>
+		<h4>赞同数</h4>
 		<div class="text-center input-group input-group-lg" style="padding:0 20%">
 			<input type="text" ng-model="agree" class="form-control">
 			<a class="input-group-addon" ng-click="submit()">提交</a>
