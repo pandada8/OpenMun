@@ -78,7 +78,7 @@ angular.module("mun").controller('VoteCon', ['$scope','$rootScope','$location', 
 						$scope.no.push(i);
 						break;
 					case 'pass':
-						pass.push($rootScope.Data.findCountryByShort(i))
+						pass.push($rootScope.Data.findCountryByShort(i));
 						break;
 					case 'abstain':
 						$scope.abstain.push(i);
@@ -90,8 +90,9 @@ angular.module("mun").controller('VoteCon', ['$scope','$rootScope','$location', 
 			$scope.round = "第二轮"
 		}else if ($scope.round == '第二轮'){
 			// 清理数据
-			for(var i in $scope.result){
-				switch($scope.result[i]){
+			for(var i in $scope.all_country){
+				var short_name = $scope.all_country[i].short
+				switch($scope.result[short_name]){
 					case "yes":
 						$scope.yes.push(i);
 						break;
@@ -106,7 +107,6 @@ angular.module("mun").controller('VoteCon', ['$scope','$rootScope','$location', 
 			// 显示对话框
 			$scope.result = result
 			$scope.dialog()
-
 		}
 	}
 	$scope.dialog= function(){
