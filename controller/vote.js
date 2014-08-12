@@ -94,10 +94,10 @@ angular.module("mun").controller('VoteCon', ['$scope','$rootScope','$location', 
 				var short_name = $scope.all_country[i].short
 				switch($scope.result[short_name]){
 					case "yes":
-						$scope.yes.push(i);
+						$scope.yes.push(short_name);
 						break;
 					case "no":
-						$scope.no.push(i);
+						$scope.no.push(short_name);
 						break;
 				}
 			}
