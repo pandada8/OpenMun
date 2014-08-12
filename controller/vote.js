@@ -53,7 +53,7 @@ angular.module("mun").controller('VoteCon', ['$scope','$rootScope','$location', 
 
 		if ($scope.checkPermentMember($scope.yes,$scope.no)){
 			// 五常都赞成
-			if ($scope.yes.length >= $rootScope.Data.rollcall.major){
+			if ($scope.yes.length >= $rootScope.Data.current_rc.major){
 				// 满足人数
 				ret.pass = true
 				ret.detail = '通过'
