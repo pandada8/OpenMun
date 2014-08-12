@@ -27,7 +27,7 @@ angular.module("mun").controller('VoteCon', ['$scope','$rootScope','$location', 
 	}
 	$scope.checkPermentMember = function(yes,no){
 		// 只要以下国家投了反对票就Out
-		country = ['CHN','ROC','FRA','USA','RUS','GBR'];
+		country = ['CHN','ROC','FRA','USA','GBR','SOC'];
 		// 注意到中国可能的简称有中华人民共和国 CHN 和中华民国 ROC
 		result = true;
 		for (var c in country){
