@@ -1,72 +1,37 @@
 [
     {
-        "chi_name": "中国",
-        "short": "PRC",
-        "eng_name": "China"
+        "chi_name": "清国代表团",
+        "short": "QIN",
+        "eng_name": "Qing Dynasty"
     },
     {
-        "chi_name": "英国",
+        "chi_name": "英国代表团",
         "short": "GBR",
         "eng_name": "England"
     },
     {
-        "chi_name": "乌克兰",
-        "short": "UKR",
-        "eng_name": "Ukraine"
+        "chi_name": "日本代表团",
+        "short": "JPN",
+        "eng_name": "Japan"
     },
     {
-        "chi_name": "美国",
+        "chi_name": "美国代表团",
         "short": "USA",
         "eng_name": "United States"
     },
     {
-        "chi_name": "俄罗斯",
+        "chi_name": "俄国代表团",
         "short": "RUS",
         "eng_name": "Russia"
     },
     {
-        "chi_name": "澳大利亚",
-        "short": "AUS",
-        "eng_name": "Australia"
-    },
-    {
-        "chi_name": "瑞典",
-        "short": "SWE",
-        "eng_name": "Sweden"
-    },
-    {
-        "chi_name": "意大利",
-        "short": "ITA",
-        "eng_name": "Italy"
-    },
-    {
-        "chi_name": "德国",
+        "chi_name": "德国代表团",
         "short": "GER",
         "eng_name": "German"
     },
     {
-        "chi_name": "法国",
+        "chi_name": "法国代表团",
         "short": "FRA",
         "eng_name": "France"
     },
-    {
-        "chi_name": "利比亚",
-        "short": "LBY",
-        "eng_name": "Libya"
-    },
-    {
-        "chi_name": "沙特阿拉伯",
-        "short": "KSA",
-        "eng_name": "Saudi Arabia"
-    },
-    {
-        "chi_name": "巴西",
-        "short": "BRA",
-        "eng_name": "Brazil"
-    },
-    {
-        "chi_name": "韩国",
-        "short": "KOR",
-        "eng_name": "Korea"
-    }
 ]
