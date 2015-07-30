@@ -1,62 +1,72 @@
 [
     {
-        "chi_name": "中华民国",
-        "short": "ROC",
-        "eng_name": "China",
-        "flag_url": "i/ROC.png"
+        "chi_name": "中国",
+        "short": "PRC",
+        "eng_name": "China"
     },
     {
         "chi_name": "英国",
         "short": "GBR",
-        "eng_name": "England",
-        "flag_url": "i/GBR.png"
+        "eng_name": "England"
     },
     {
-        "chi_name": "南斯拉夫",
-        "short": "YUG",
-        "eng_name": "Yugoslavia",
-        "flag_url": "i/YUG.png"
+        "chi_name": "乌克兰",
+        "short": "UKR",
+        "eng_name": "Ukraine"
     },
     {
         "chi_name": "美国",
         "short": "USA",
-        "eng_name": "United States",
-        "flag_url": "i/USA.png"
+        "eng_name": "United States"
     },
     {
-        "chi_name": "苏联",
-        "short": "SOC",
-        "eng_name": "Union of Soviet",
-        "flag_url": "i/SOC.png"
+        "chi_name": "俄罗斯",
+        "short": "RUS",
+        "eng_name": "Russia"
     },
     {
-        "chi_name": "古巴",
-        "short": "CUB",
-        "eng_name": "Cuba",
-        "flag_url": "i/CUB.png"
+        "chi_name": "澳大利亚",
+        "short": "AUS",
+        "eng_name": "Australia"
     },
     {
-        "chi_name": "厄瓜多尔",
-        "short": "ECU",
-        "eng_name": "Ecuador",
-        "flag_url": "i/ECU.png"
+        "chi_name": "瑞典",
+        "short": "SWE",
+        "eng_name": "Sweden"
     },
     {
-        "chi_name": "埃及",
-        "short": "EGY",
-        "eng_name": "Egypt",
-        "flag_url": "i/EGY.png"
+        "chi_name": "意大利",
+        "short": "ITA",
+        "eng_name": "Italy"
     },
     {
-        "chi_name": "印度",
-        "short": "IND",
-        "eng_name": "India",
-        "flag_url": "i/IND.png"
+        "chi_name": "德国",
+        "short": "GER",
+        "eng_name": "German"
     },
     {
-        "chi_name": "挪威",
-        "short": "NOR",
-        "eng_name": "Norway",
-        "flag_url": "i/NOR.png"
+        "chi_name": "法国",
+        "short": "FRA",
+        "eng_name": "France"
+    },
+    {
+        "chi_name": "利比亚",
+        "short": "LBY",
+        "eng_name": "Libya"
+    },
+    {
+        "chi_name": "沙特阿拉伯",
+        "short": "KSA",
+        "eng_name": "Saudi Arabia"
+    },
+    {
+        "chi_name": "巴西",
+        "short": "BRA",
+        "eng_name": "Brazil"
+    },
+    {
+        "chi_name": "韩国",
+        "short": "KOR",
+        "eng_name": "Korea"
     }
 ]

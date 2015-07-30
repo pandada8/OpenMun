@@ -15,7 +15,7 @@ mun.config(['$routeProvider','$locationProvider',function($routeProvider,$locati
 	}).when('/motion/new',{
 		templateUrl:"motion_new.html",
 		controller:'MotionNew'
-	}).when("/rollcall",{	
+	}).when("/rollcall",{
 		templateUrl:'rollcall.html',
 		controller:'RollCall'
 	}).when("/rollcall/new",{
@@ -68,6 +68,10 @@ mun.controller("menucon",["$scope","$location","$rootScope",'$http',function($sc
 	// 鉴于目前只有这一处需要用到网络，暂时使用 `http`
 	// 懒得写错误处理了
 	$http.get('/data.json').success(function(data,status,headers,config){
+		data = data.map(function(x){
+			x.flag_url = "i/"+ x.short + '.png';
+			return x
+		})
 		$rootScope.Data.all_country = data
 		$rootScope.Data.alive_country = []
 		if ($rootScope.Data.current_rc){
@@ -76,12 +80,12 @@ mun.controller("menucon",["$scope","$location","$rootScope",'$http',function($sc
 				$rootScope.Data.alive_country.push($rootScope.Data.findCountryByShort(c))
 			}
 		}
-		
+
 		console.log('国家初始化成功，载入'+data.length+'个国家')
 	})
 	// 从localStorage载入历史数据
 	$rootScope.Data.vote = {};
-	
+
 
 	$rootScope.Data.findCountryByShort = function(short){
 		for (var i in $rootScope.Data.all_country){
@@ -152,6 +156,3 @@ function RollCall(presents,all,time){
 	a.time_human = d.toLocaleString()
 	return a
 }
-
-
-
